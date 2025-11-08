@@ -10,10 +10,11 @@ replace_in_file(${sfpconv_hal_file} "stm32f1x" "${chip_family}")
 
 add_library(sfpconv
     src/sfpconv.cc
+    src/sfp_conv_io.cc
 )
 
 set(SFPCONV_INC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/inc)
 
-target_include_directories(sfpconv PRIVATE ${SFPCONV_INC_DIR})
+target_include_directories(sfpconv PRIVATE ${SFPCONV_INC_DIR} ${TCA9535_INC_DIR} ${Si5351_INC_DIR})
 
 set(SFPCONV_INC_DIR ${SFPCONV_INC_DIR} PARENT_SCOPE)
